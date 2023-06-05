@@ -3,7 +3,7 @@ import { Crisp } from "crisp-sdk-web";
 
 class ChatBox extends Component {
   componentDidMount() {
-    Crisp.configure("MY_CRISP_WEBSITE_ID");
+    Crisp.configure("51b50fc1-2ed2-4f2e-9d1c-5636b8a34d9a");
   }
 
   render() {
