@@ -22,16 +22,16 @@ function NavbarSipenting() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="navbar-nav ms-auto justify-content-end flex-grow-1 pe-3">
-            <Nav.Link as={NavLink} to="/" exact className="nav-link active pe-5" style={getNavLinkStyle("/")}>
+            <Nav.Link as={NavLink} exact={true.toString()} to="/" className="nav-link active pe-5" style={getNavLinkStyle("/")}>
               Beranda
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/konsultasi" className="nav-link pe-5" style={getNavLinkStyle("/konsultasi")}>
+            <Nav.Link as={NavLink} exact={true.toString()} to="/konsultasi" className="nav-link pe-5" style={getNavLinkStyle("/konsultasi")}>
               Konsultasi
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/cekgizi" className="nav-link pe-5" style={getNavLinkStyle("/cekgizi")}>
+            <Nav.Link as={NavLink} exact={true.toString()} to="/cekgizi" className="nav-link pe-5" style={getNavLinkStyle("/cekgizi")}>
               Cek Gizi
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/artikel" className="nav-link pe-5" style={getNavLinkStyle("/artikel")}>
+            <Nav.Link as={NavLink} exact={true.toString()} to="/artikel" className="nav-link pe-5" style={getNavLinkStyle("/artikel")}>
               Artikel
             </Nav.Link>
           </Nav>
