@@ -1,9 +1,10 @@
-// LoginForm.js
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contex/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,6 +20,7 @@ const LoginForm = () => {
           login(user);
           console.log("Login berhasil!");
           alert("Login berhasil!");
+          navigate("/konsultasi"); // Redirect to the "konsultasi" page
         } else {
           console.log("Username atau password salah!");
           alert("Username atau password salah!");
