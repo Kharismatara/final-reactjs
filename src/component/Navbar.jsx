@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { NavLink, useLocation } from "react-router-dom";
-import "./navbar.css";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contex/AuthContext";
 
 function NavbarSipenting() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user = false, logout } = useContext(AuthContext);
 
   const getNavLinkStyle = (path) => {
     if (path === location.pathname) {
       return { color: "#54BCA4", fontWeight: "bold" };
     }
     return {};
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+    // Redirect to the home page after logout
   };
 
   return (
@@ -35,12 +43,20 @@ function NavbarSipenting() {
               Artikel
             </Nav.Link>
           </Nav>
-          <Button variant="outline-success me-4" className="btndaftar">
-            Daftar
-          </Button>
-          <Button variant="outline-success" className="btnmasuk">
-            Masuk
-          </Button>
+          {user ? (
+            <>
+              <Button variant="outline-success me-4" className="btndaftar">
+                Daftar
+              </Button>
+              <Button variant="outline-success" className="btnmasuk">
+                Masuk
+              </Button>
+            </>
+          ) : (
+            <Button variant="outline-success" onClick={handleLogout} className="btnmasuk">
+              Logout
+            </Button>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -5,14 +5,16 @@ import LoginForm from "../component/FormLogin";
 import { AuthProvider } from "../contex/AuthContext";
 import { AuthContext } from "../contex/AuthContext";
 import { Navigate } from "react-router-dom";
+import { Stack } from "react-bootstrap";
 
 const LoginPage = () => {
   return (
     <div>
-      <h1>Login Page</h1>
-      <AuthProvider>
-        <LoginForm />
-      </AuthProvider>
+      <Stack gap={3}>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Stack>
     </div>
   );
 };
