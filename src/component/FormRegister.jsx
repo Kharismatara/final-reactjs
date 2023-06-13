@@ -1,6 +1,6 @@
-// RegisterForm.js
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contex/AuthContext";
+import { Container, Form, Button, Row, Col, Stack } from "react-bootstrap";
 
 const RegisterForm = () => {
   const { login } = useContext(AuthContext);
@@ -38,29 +38,35 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleRegister}>
-          Register
-        </button>
-      </form>
-    </div>
+    <Container>
+      <Stack gap={3}>
+        <Row className=" d-flex flex-column flex-lg-row mt-5 pt-5">
+          <Col lg={5} className="d-flex justify-content-center align-items-center">
+            <img src="https://res.cloudinary.com/damsz0xlx/image/upload/v1683201273/Assets/hero_e6ssza.png" alt="Register" style={{ width: "100%", maxWidth: 400 }} />
+          </Col>
+          <Col lg={7}>
+            <h2>Register</h2>
+            <Form>
+              <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Username:</Form.Label>
+                <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              </Form.Group>
+              <Button variant="primary" type="button" onClick={handleRegister}>
+                Register
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Stack>
+    </Container>
   );
 };
 
